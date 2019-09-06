@@ -3,6 +3,8 @@ var app = new Vue({
   data: {
     errorMsg: false,
     successMsg: false,
-    showAddModal: false
+    showAddModal: false,
+    showEditModal: false,
+    showDeleteModal: true
   }
 });

@@ -43,10 +43,7 @@
             <h3 class="text-info">Register User</h3>
           </div>
           <div class="col-lg-6">
-            <button
-              class="btn btn-info float-right"
-              @click="showAddModal=false"
-            >
+            <button class="btn btn-info float-right" @click="showAddModal=true">
               <i class="fa fa-user"></i>&nbsp;&nbsp; Add New User
             </button>
           </div>
@@ -73,15 +70,34 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-center"></tr>
+                <tr class="text-center">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <a href="#" class="text-success" @click="showEditModal=true"
+                      ><i class="fa fa-edit"></i
+                    ></a>
+                  </td>
+                  <td>
+                    <a
+                      href="#"
+                      class="text-danger"
+                      @click="showDeleteModal=true"
+                      ><i class="fa fa-trash"></i
+                    ></a>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
+      <!-- Add user modal -->
       <div id="overlay" v-if="showAddModal">
-        <div class="model-dialog">
+        <div class="modal-dialog">
           <div class="modal-content">
             <!-- modal header -->
             <div class="modal-header">
@@ -91,7 +107,7 @@
               </button>
             </div>
             <!-- modal body -->
-            <div class="model-body p-4">
+            <div class="modal-body p-4">
               <form action="#" method="post">
                 <!-- name  -->
                 <div class="form-group">
@@ -134,6 +150,95 @@
           </div>
         </div>
       </div>
+      <!-- end Add user modal -->
+
+      <!-- Edit user modal -->
+      <div id="overlay" v-if="showEditModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- modal header -->
+            <div class="modal-header">
+              <h5>Edit user</h5>
+              <button class="close" type="button" @click="showEditModal=false">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- modal body -->
+            <div class="modal-body p-4">
+              <form action="#" method="post">
+                <!-- name  -->
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control form-control-lg"
+                    placeholder="Name"
+                  />
+                </div>
+                <!-- email address -->
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control form-control-lg"
+                    placeholder="Email"
+                  />
+                </div>
+                <!-- telephone number -->
+                <div class="form-group">
+                  <input
+                    type="tel"
+                    name="tel"
+                    class="form-control form-control-lg"
+                    placeholder="Number"
+                  />
+                </div>
+                <!-- button to add user -->
+                <div class="form-group">
+                  <button
+                    class="btn btn-info btn-block btn-lg"
+                    @click="showEditModal=false"
+                  >
+                    Update User
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end edit user modal -->
+
+      <!-- Delete user modal -->
+      <div id="overlay" v-if="showDeleteModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- modal header -->
+            <div class="modal-header">
+              <h5>Remove user</h5>
+              <button
+                class="close"
+                type="button"
+                @click="showDeleteModal=false"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- modal body -->
+            <div class="modal-body p-4">
+              <h4 class="text-danger" ;>
+                Are you sure you want to delete this user?
+              </h4>
+              <h5>You are deleting user '$user'</h5>
+              <hr />
+              <button class="btn btn-info btn-lg">Yes</button>
+              &nbsp; &nbsp; &nbsp;&nbsp;
+              <button class="btn btn-success btn-lg">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end delete user modal -->
     </div>
 
     <!-- vue js -->
